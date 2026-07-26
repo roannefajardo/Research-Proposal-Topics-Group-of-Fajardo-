@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Proposal Topics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ===================================================================
+   ROOT / RESET
+=================================================================== */
+:root{
+  --home-ink:#f4efe4;
+  --home-bg-1:#0f1210;
+  --home-bg-2:#1c2620;
+  --accent-gold:#c9a15a;
+
+  /* Topic 1 — Bookworm / Library */
+  --t1-bg:#f4ecd8;
+  --t1-bg-2:#e9dcc0;
+  --t1-panel:#fffaf0;
+  --t1-ink:#2c2013;
+  --t1-ink-soft:#463b28;
+  --t1-brown:#6b4226;
+  --t1-brown-deep:#3f2a18;
+  --t1-green:#33452e;
+  --t1-cream:#fbf4e4;
+  --t1-line:#d8c6a0;
+
+  /* Topic 2 — Corporate Silver */
+  --t2-bg:#e9ebee;
+  --t2-bg-2:#f6f7f9;
+  --t2-panel:#ffffff;
+  --t2-ink:#20242b;
+  --t2-ink-soft:#40454e;
+  --t2-charcoal:#2b3038;
+  --t2-silver:#9aa2ad;
+  --t2-line:#d7dbe1;
+  --t2-accent:#3f5972;
+
+  /* Topic 3 — Tech Blue */
+  --t3-bg:#050c1a;
+  --t3-bg-2:#081226;
+  --t3-panel:rgba(18,32,58,0.65);
+  --t3-ink:#eaf3ff;
+  --t3-ink-soft:#bcd0ec;
+  --t3-navy:#0a1930;
+  --t3-blue:#2f6fed;
+  --t3-cyan:#4be3ff;
+  --t3-line:rgba(75,227,255,0.25);
+
+  --ease: cubic-bezier(.65,.05,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{
+  height:100%;
+  width:100%;
+  overflow:hidden;
+  font-family:'Manrope',sans-serif;
+  background:var(--home-bg-1);
+}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+ul{list-style:none;}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+}
+
+/* ===================================================================
+   HOME / WELCOME SCREEN
+=================================================================== */
+#home{
+  position:fixed;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(201,161,90,0.15), transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(60,110,90,0.18), transparent 50%),
+    linear-gradient(160deg, var(--home-bg-1), var(--home-bg-2));
+  color:var(--home-ink);
+  text-align:center;
+  z-index:50;
+  padding:4vh 6vw;
+  transition:opacity .9s var(--ease), visibility .9s var(--ease), transform .9s var(--ease);
+  overflow:hidden;
+}
+#home.leaving{opacity:0;transform:scale(1.04);visibility:hidden;pointer-events:none;}
+
+.home-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+.particle{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle, rgba(201,161,90,0.55), transparent 70%);
+  animation:float-up linear infinite;
+  opacity:.55;
+}
+@keyframes float-up{
+  0%{transform:translateY(0) translateX(0) scale(1);opacity:0;}
+  10%{opacity:.6;}
+  90%{opacity:.4;}
+  100%{transform:translateY(-110vh) translateX(20px) scale(1.3);opacity:0;}
+}
+
+.home-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  letter-spacing:.35em;
+  font-size:clamp(.85rem, 1.3vw, 1.15rem);
+  text-transform:uppercase;
+  color:var(--accent-gold);
+  opacity:0;
+  animation:rise .8s var(--ease) .15s forwards;
+}
+.home-title{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  font-size:clamp(3.2rem, 9vw, 7.6rem);
+  line-height:1.04;
+  margin:1rem 0 1.2rem;
+  max-width:20ch;
+  opacity:0;
+  animation:rise .9s var(--ease) .35s forwards;
+}
+.home-divider{
+  width:80px;height:3px;
+  background:linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+  margin:1.6rem 0 2.6rem;
+  opacity:0;
+  animation:rise .8s var(--ease) .55s forwards;
+}
+.play-btn{
+  position:relative;
+  width:132px;height:132px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 35% 30%, #ecd6a0, var(--accent-gold) 70%);
+  box-shadow:0 10px 40px rgba(201,161,90,0.35), 0 0 0 1px rgba(255,255,255,0.15) inset;
+  opacity:0;
+  animation:rise .9s var(--ease) .75s forwards, pulse-ring 2.8s ease-in-out 2s infinite;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.play-btn:hover{transform:scale(1.07);box-shadow:0 14px 50px rgba(201,161,90,0.5);}
+.play-btn:active{transform:scale(0.97);}
+.play-btn i{font-size:2.4rem;color:#1c150a;margin-left:6px;}
+@keyframes pulse-ring{
+  0%,100%{box-shadow:0 10px 40px rgba(201,161,90,0.35), 0 0 0 0 rgba(201,161,90,0.35);}
+  50%{box-shadow:0 10px 40px rgba(201,161,90,0.35), 0 0 0 18px rgba(201,161,90,0);}
+}
+.home-hint{
+  margin-top:1.8rem;
+  font-size:clamp(1rem,1.3vw,1.2rem);
+  color:#cfc6b3;
+  letter-spacing:.05em;
+  opacity:0;
+  animation:rise .8s var(--ease) .95s forwards;
+}
+@keyframes rise{
+  from{opacity:0;transform:translateY(18px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ===================================================================
+   PRESENTATION SHELL
+=================================================================== */
+#presentation{
+  position:fixed;inset:0;
+  opacity:0;visibility:hidden;
+  transition:opacity .7s var(--ease), visibility .7s var(--ease);
+}
+#presentation.active{opacity:1;visibility:visible;}
+
+.deck-viewport{
+  position:relative;
+  width:100%;height:100%;
+  overflow:hidden;
+  background:var(--stage-bg, #0f1210);
+  transition:background 1s var(--ease);
+}
+.deck-track{
+  display:flex;
+  height:100%;
+  width:calc(100% * 13);
+  transition:transform .75s var(--ease);
+}
+.slide{
+  position:relative;
+  width:calc(100% / 13);
+  height:100%;
+  flex-shrink:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+.slide-inner{
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:6vh 8vw;
+  max-width:1280px;
+  margin:0 auto;
+}
+
+/* ---------- THEME 1 : LIBRARY / BOOKWORM ---------- */
+.slide.theme-library{
+  background:
+    repeating-linear-gradient(0deg, rgba(107,66,38,0.025) 0px, rgba(107,66,38,0.025) 2px, transparent 2px, transparent 4px),
+    radial-gradient(circle at 85% 10%, rgba(107,66,38,0.10), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(51,69,46,0.12), transparent 50%),
+    linear-gradient(160deg, var(--t1-bg), var(--t1-bg-2));
+  color:var(--t1-ink);
+}
+.theme-library .eyebrow{color:var(--t1-brown);}
+.theme-library h1,.theme-library h2{font-family:'Fraunces',serif;color:var(--t1-brown-deep);}
+.theme-library p, .theme-library li{font-family:'Source Serif 4',serif;color:var(--t1-ink-soft);}
+.theme-library .rule{background:linear-gradient(90deg,var(--t1-brown),transparent);}
+.theme-library .panel{
+  background:var(--t1-panel);
+  border:1px solid var(--t1-line);
+  box-shadow:0 18px 40px rgba(63,42,24,0.10);
+}
+.theme-library .hero-icon-wrap{
+  background:radial-gradient(circle at 35% 30%, var(--t1-cream), var(--t1-bg-2) 75%);
+  border:1px solid var(--t1-line);
+  box-shadow:0 20px 45px rgba(63,42,24,0.14);
+}
+.theme-library .hero-icon-wrap i{color:var(--t1-brown);}
+.theme-library .problem-card i{color:var(--t1-brown);}
+.theme-library .solution-box{
+  background:linear-gradient(135deg, var(--t1-green), #24331f);
+  color:var(--t1-cream);
+  box-shadow:0 20px 45px rgba(51,69,46,0.30);
+}
+.theme-library .solution-box .sol-label{color:#c9d9bd;}
+.theme-library .solution-box i{color:var(--t1-cream);}
+
+/* ---------- THEME 2 : CORPORATE SILVER ---------- */
+.slide.theme-corporate{
+  background:
+    linear-gradient(135deg, rgba(154,162,173,0.10), transparent 40%),
+    linear-gradient(150deg, var(--t2-bg), var(--t2-bg-2));
+  color:var(--t2-ink);
+}
+.theme-corporate .eyebrow{color:var(--t2-accent);}
+.theme-corporate h1,.theme-corporate h2{font-family:'Space Grotesk',sans-serif;color:var(--t2-charcoal);}
+.theme-corporate p, .theme-corporate li{font-family:'Manrope',sans-serif;color:var(--t2-ink-soft);}
+.theme-corporate .rule{background:linear-gradient(90deg,var(--t2-silver),transparent);}
+.theme-corporate .panel{
+  background:var(--t2-panel);
+  border:1px solid var(--t2-line);
+  box-shadow:0 16px 36px rgba(43,48,56,0.08);
+}
+.theme-corporate .hero-icon-wrap{
+  background:radial-gradient(circle at 35% 30%, #ffffff, var(--t2-bg-2) 75%);
+  border:1px solid var(--t2-line);
+  box-shadow:0 20px 45px rgba(43,48,56,0.10);
+}
+.theme-corporate .hero-icon-wrap i{color:var(--t2-accent);}
+.theme-corporate .problem-card i{color:var(--t2-accent);}
+.theme-corporate .solution-box{
+  background:linear-gradient(135deg, var(--t2-charcoal), #171a1f);
+  color:#f1f3f5;
+  box-shadow:0 20px 45px rgba(32,36,43,0.25);
+}
+.theme-corporate .solution-box .sol-label{color:#aeb6c2;}
+.theme-corporate .solution-box i{color:#dfe3e8;}
+
+/* ---------- THEME 3 : TECH BLUE ---------- */
+.slide.theme-tech{
+  background:
+    linear-gradient(rgba(75,227,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(75,227,255,0.05) 1px, transparent 1px),
+    radial-gradient(circle at 80% 15%, rgba(47,111,237,0.28), transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(75,227,255,0.16), transparent 45%),
+    linear-gradient(160deg, var(--t3-bg), var(--t3-bg-2));
+  background-size:40px 40px, 40px 40px, auto, auto, auto;
+  color:var(--t3-ink);
+}
+.theme-tech .eyebrow{color:var(--t3-cyan);}
+.theme-tech h1,.theme-tech h2{font-family:'Space Grotesk',sans-serif;color:#f2f8ff;text-shadow:0 0 24px rgba(75,227,255,0.25);}
+.theme-tech p, .theme-tech li{font-family:'Manrope',sans-serif;color:var(--t3-ink-soft);}
+.theme-tech .rule{background:linear-gradient(90deg,var(--t3-cyan),transparent);}
+.theme-tech .panel{
+  background:var(--t3-panel);
+  border:1px solid var(--t3-line);
+  backdrop-filter:blur(14px);
+  box-shadow:0 0 0 1px rgba(75,227,255,0.05) inset, 0 20px 45px rgba(2,8,20,0.45);
+}
+.theme-tech .hero-icon-wrap{
+  background:radial-gradient(circle at 35% 30%, rgba(75,227,255,0.25), rgba(10,25,48,0.6) 75%);
+  border:1px solid var(--t3-line);
+  box-shadow:0 0 40px rgba(75,227,255,0.2), 0 20px 45px rgba(2,8,20,0.5);
+}
+.theme-tech .hero-icon-wrap i{color:var(--t3-cyan);}
+.theme-tech .problem-card i{color:var(--t3-cyan);}
+.theme-tech .solution-box{
+  background:linear-gradient(135deg, rgba(47,111,237,0.92), rgba(75,227,255,0.6));
+  color:#031018;
+  box-shadow:0 0 40px rgba(75,227,255,0.25), 0 20px 45px rgba(2,8,20,0.5);
+}
+.theme-tech .solution-box .sol-label{color:#04263d;}
+.theme-tech .solution-box i{color:#031018;}
+
+/* ---------- THEME 4 : CLOSING ---------- */
+.slide.theme-closing{
+  background:
+    radial-gradient(circle at 25% 25%, rgba(201,161,90,0.16), transparent 45%),
+    radial-gradient(circle at 78% 70%, rgba(75,227,255,0.10), transparent 50%),
+    linear-gradient(160deg, var(--home-bg-1), var(--home-bg-2));
+  color:var(--home-ink);
+}
+.theme-closing .slide-inner{align-items:center;text-align:center;}
+.theme-closing .eyebrow{color:var(--accent-gold);}
+.theme-closing h1{font-family:'Fraunces',serif;color:#faf6ec;}
+.theme-closing .closing-sub{font-family:'Source Serif 4',serif;color:#d9d0bd;}
+.theme-closing .rule{background:linear-gradient(90deg,transparent,var(--accent-gold),transparent);margin-left:auto;margin-right:auto;}
+.theme-closing .closing-icon{color:var(--accent-gold);font-size:clamp(2.4rem,4vw,3.2rem);margin-bottom:1.4rem;opacity:0;animation:rise .8s var(--ease) 0s forwards;}
+
+/* ---------- SHARED SLIDE ELEMENTS ---------- */
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(.85rem, 1.1vw, 1.05rem);
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  margin-bottom:1.2rem;
+}
+.rule{width:72px;height:4px;border-radius:4px;margin:1.3rem 0 2rem;}
+h1.slide-title{font-size:clamp(2.4rem,4.6vw,4rem);font-weight:600;line-height:1.12;max-width:20ch;}
+h2.slide-heading{font-size:clamp(2.2rem,3.8vw,3.2rem);font-weight:600;margin-bottom:1.8rem;}
+.slide-lede{font-size:clamp(1.2rem,1.7vw,1.45rem);line-height:1.7;max-width:60ch;margin-top:1.4rem;}
+
+/* Hero layout (Problem Statement / Proposed System slides) */
+.hero-layout{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  align-items:center;
+  gap:3.2rem;
+}
+.hero-icon-wrap{
+  width:clamp(120px,14vw,180px);
+  height:clamp(120px,14vw,180px);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  opacity:0;transform:scale(.85);
+  animation:pop-in .7s var(--ease) forwards;
+}
+.hero-icon-wrap i{font-size:clamp(2.6rem,5vw,4rem);}
+@keyframes pop-in{to{opacity:1;transform:scale(1);}}
+.hero-text{opacity:0;transform:translateY(16px);animation:card-in .7s var(--ease) .15s forwards;}
+
+/* Problems grid */
+.problems-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1.4rem 1.6rem;
+  margin-top:1.2rem;
+}
+.problem-card{
+  padding:1.6rem 1.7rem;
+  border-radius:18px;
+  display:flex;gap:1.1rem;align-items:flex-start;
+  opacity:0;transform:translateY(18px);
+  animation:card-in .6s var(--ease) forwards;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.problem-card:hover{transform:translateY(-4px);}
+.problem-card i{flex-shrink:0;font-size:1.5rem;margin-top:.2rem;width:1.6rem;text-align:center;}
+.problem-card p{font-size:clamp(1.1rem,1.5vw,1.35rem);line-height:1.55;font-weight:500;}
+
+.solution-box{
+  margin-top:2rem;
+  padding:2.4rem 2.6rem;
+  border-radius:22px;
+  opacity:0;transform:translateY(20px);
+  animation:card-in .7s var(--ease) .1s forwards;
+  display:flex;gap:1.6rem;align-items:flex-start;
+}
+.solution-box i{font-size:2.2rem;flex-shrink:0;margin-top:.3rem;}
+.sol-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:clamp(.8rem,1vw,.9rem);letter-spacing:.28em;text-transform:uppercase;
+  margin-bottom:.9rem;display:block;
+}
+.solution-box p{font-size:clamp(1.25rem,2vw,1.6rem);line-height:1.65;font-weight:500;color:inherit;}
+
+@keyframes card-in{to{opacity:1;transform:translateY(0);}}
+
+/* Closing slide */
+.closing-title{font-size:clamp(4rem,10vw,8rem);font-weight:600;line-height:1;margin-bottom:1.6rem;opacity:0;animation:rise .9s var(--ease) .1s forwards;}
+.closing-sub{font-size:clamp(1.4rem,2.2vw,1.9rem);margin-bottom:.7rem;opacity:0;animation:rise .8s var(--ease) .3s forwards;}
+.closing-line{font-family:'JetBrains Mono',monospace;letter-spacing:.22em;text-transform:uppercase;font-size:clamp(.95rem,1.3vw,1.15rem);color:var(--accent-gold);opacity:0;animation:rise .8s var(--ease) .5s forwards;}
+
+/* ===================================================================
+   NAVIGATION
+=================================================================== */
+.deck-chrome{
+  position:fixed;inset:0;
+  pointer-events:none;
+  z-index:20;
+}
+.deck-topbar{
+  position:absolute;top:0;left:0;right:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.8rem 2.8rem;
+  pointer-events:auto;
+}
+.deck-brand{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.9rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--chrome-ink,#f4efe4);
+  opacity:.85;
+}
+.progress-track{
+  width:240px;height:5px;border-radius:5px;
+  background:rgba(255,255,255,0.18);
+  overflow:hidden;
+}
+.progress-fill{
+  height:100%;border-radius:5px;
+  background:var(--chrome-accent,#c9a15a);
+  transition:width .6s var(--ease);
+}
+.slide-counter{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.95rem;
+  color:var(--chrome-ink,#f4efe4);
+  opacity:.85;
+  min-width:64px;text-align:right;
+}
+.topbar-right{display:flex;align-items:center;gap:1.1rem;}
+
+.deck-dots{
+  position:absolute;bottom:2.6rem;left:50%;transform:translateX(-50%);
+  display:flex;gap:9px;
+  pointer-events:auto;
+  flex-wrap:wrap;
+  justify-content:center;
+  max-width:70vw;
+}
+.dot{
+  width:9px;height:9px;border-radius:50%;
+  background:rgba(255,255,255,0.28);
+  transition:transform .3s var(--ease), background .3s var(--ease), width .3s var(--ease);
+}
+.dot.active{background:var(--chrome-accent,#c9a15a);width:24px;border-radius:5px;}
+
+.nav-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.2);
+  backdrop-filter:blur(8px);
+  color:var(--chrome-ink,#f4efe4);
+  pointer-events:auto;
+  transition:background .3s var(--ease), transform .3s var(--ease);
+}
+.nav-arrow:hover{background:rgba(255,255,255,0.22);transform:translateY(-50%) scale(1.08);}
+.nav-arrow:active{transform:translateY(-50%) scale(0.94);}
+.nav-arrow i{font-size:1.15rem;}
+.nav-prev{left:2.2rem;}
+.nav-next{right:2.2rem;}
+.nav-arrow.hidden-arrow{opacity:0;pointer-events:none;}
+
+.home-link-btn{
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.2);
+  color:var(--chrome-ink,#f4efe4);
+  transition:background .3s var(--ease);
+}
+.home-link-btn:hover{background:rgba(255,255,255,0.22);}
+.home-link-btn i{font-size:1.05rem;}
+
+/* ===================================================================
+   RESPONSIVE
+=================================================================== */
+@media (max-width:1150px){
+  .problems-grid{grid-template-columns:1fr;}
+  .slide-inner{padding:5vh 7vw;}
+  .hero-layout{grid-template-columns:1fr;justify-items:center;text-align:center;gap:1.8rem;}
+  .hero-text{max-width:70ch;}
+}
+@media (max-width:720px){
+  .deck-topbar{padding:1.2rem 1.2rem;}
+  .progress-track{width:110px;}
+  .deck-brand{display:none;}
+  .nav-arrow{width:46px;height:46px;}
+  .nav-prev{left:.7rem;}
+  .nav-next{right:.7rem;}
+  .slide-inner{padding:10vh 6vw 7vh;}
+  h1.slide-title{max-width:100%;}
+  .play-btn{width:104px;height:104px;}
+  .deck-dots{bottom:1.3rem;gap:7px;}
+  .dot{width:7px;height:7px;}
+  .dot.active{width:18px;}
+  .closing-title{font-size:clamp(3rem,14vw,5rem);}
+  .solution-box{flex-direction:column;}
+}
+@media (max-width:480px){
+  .home-title{max-width:14ch;font-size:clamp(2.4rem,11vw,3.4rem);}
+  .problem-card{padding:1.2rem 1.3rem;}
+  .solution-box{padding:1.7rem 1.5rem;}
+  h1.slide-title{font-size:clamp(2rem,8vw,2.6rem);}
+  h2.slide-heading{font-size:clamp(1.7rem,7vw,2.2rem);}
+  .hero-icon-wrap{width:96px;height:96px;}
+  .hero-icon-wrap i{font-size:2.1rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     HOME / WELCOME SCREEN
+========================================================== -->
+<section id="home">
+  <div class="home-particles" id="particles"></div>
+  <span class="home-eyebrow">Information System Research</span>
+  <h1 class="home-title">Research Proposal Topics</h1>
+  <div class="home-divider"></div>
+  <button class="play-btn" id="playBtn" aria-label="Play presentation">
+    <i class="fa-solid fa-play"></i>
+  </button>
+  <p class="home-hint">Press Play to Start</p>
+</section>
+
+<!-- =========================================================
+     PRESENTATION
+========================================================== -->
+<section id="presentation">
+  <div class="deck-viewport" id="viewport">
+    <div class="deck-track" id="track">
+
+      <!-- ============ TOPIC 1 : LIBRARY THEME ============ -->
+      <!-- Slide 0: Problem Statement -->
+      <article class="slide theme-library" data-index="0">
+        <div class="slide-inner">
+          <span class="eyebrow">Topic 01 · Problem Statement</span>
+          <div class="hero-layout">
+            <div class="hero-icon-wrap panel"><i class="fa-solid fa-book-open"></i></div>
+            <div class="hero-text">
+              <h1 class="slide-title">Inefficient Library Seat Management and Study Space Utilization</h1>
+              <p class="slide-lede">Campus libraries offer only a limited number of seats, yet demand peaks sharply during exam periods and deadline weeks. Without a way to reserve or track seat use, spots are claimed indefinitely by students who are away or asleep, while others are turned away at the door. The result is an overcrowded, unpredictable space that fails the students who need it most.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 1: Problems -->
+      <article class="slide theme-library" data-index="1">
+        <div class="slide-inner">
+          <span class="eyebrow">The Challenge</span>
+          <h2 class="slide-heading">Problems</h2>
+          <div class="problems-grid">
+            <div class="problem-card panel" style="animation-delay:.03s">
+              <i class="fa-solid fa-bed"></i>
+              <p>Students sleep instead of studying.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.10s">
+              <i class="fa-regular fa-clock"></i>
+              <p>Students occupy seats for hours.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.17s">
+              <i class="fa-solid fa-users"></i>
+              <p>The library becomes overcrowded during peak times.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.24s">
+              <i class="fa-solid fa-chair"></i>
+              <p>Limited seats for students needing study space.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.31s">
+              <i class="fa-solid fa-clipboard-list"></i>
+              <p>Manual monitoring burdens librarians.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 2: Proposed System -->
+      <article class="slide theme-library" data-index="2">
+        <div class="slide-inner">
+          <span class="eyebrow">Topic 01 · Proposed System</span>
+          <div class="hero-layout">
+            <div class="hero-icon-wrap panel"><i class="fa-solid fa-calendar-check"></i></div>
+            <div class="hero-text">
+              <h1 class="slide-title">CCA Library Seat Reservation and Management System</h1>
+              <p class="slide-lede">The CCA Library Seat Reservation and Management System gives students a way to reserve a seat in advance and gives library staff visibility into how seats are actually being used. By replacing manual headcounts with a structured reservation and monitoring process, the system keeps the library organized even during its busiest hours.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 3: Solution -->
+      <article class="slide theme-library" data-index="3">
+        <div class="slide-inner">
+          <span class="eyebrow">The Proposal</span>
+          <h2 class="slide-heading">Solution</h2>
+          <div class="solution-box">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <span class="sol-label">How it helps</span>
+              <p>The system organizes seat reservations before arrival, limits occupancy time, and manages seat availability. It helps maintain a quiet and productive study environment while making library management more efficient for both students and librarians.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ TOPIC 2 : CORPORATE SILVER THEME ============ -->
+      <!-- Slide 4: Problem Statement -->
+      <article class="slide theme-corporate" data-index="4">
+        <div class="slide-inner">
+          <span class="eyebrow">Topic 02 · Problem Statement</span>
+          <div class="hero-layout">
+            <div class="hero-icon-wrap panel"><i class="fa-solid fa-route"></i></div>
+            <div class="hero-text">
+              <h1 class="slide-title">Challenges in Tricycle Fare Transparency</h1>
+              <p class="slide-lede">Tricycle fares vary from driver to driver, and the posted fare matrices passengers rely on are often outdated by the time fuel prices change. Passengers have no quick way to check what they should be paying, and complaints about overcharging are hard to track down after the fact. This gap in transparency erodes trust between drivers and the passengers they serve.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 5: Problems -->
+      <article class="slide theme-corporate" data-index="5">
+        <div class="slide-inner">
+          <span class="eyebrow">The Challenge</span>
+          <h2 class="slide-heading">Problems</h2>
+          <div class="problems-grid">
+            <div class="problem-card panel" style="animation-delay:.03s">
+              <i class="fa-solid fa-money-bill-wave"></i>
+              <p>Drivers charge different fares.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.10s">
+              <i class="fa-solid fa-file-invoice"></i>
+              <p>Posted fare matrix may be outdated.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.17s">
+              <i class="fa-solid fa-gas-pump"></i>
+              <p>Fuel price increases cause fare disputes.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.24s">
+              <i class="fa-solid fa-magnifying-glass-dollar"></i>
+              <p>Passengers cannot verify correct fares.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.31s">
+              <i class="fa-solid fa-database"></i>
+              <p>No centralized fare information.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.38s">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <p>Complaints are difficult to monitor.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 6: Proposed System -->
+      <article class="slide theme-corporate" data-index="6">
+        <div class="slide-inner">
+          <span class="eyebrow">Topic 02 · Proposed System</span>
+          <div class="hero-layout">
+            <div class="hero-icon-wrap panel"><i class="fa-solid fa-motorcycle"></i></div>
+            <div class="hero-text">
+              <h1 class="slide-title">Tricycle Live Fare System</h1>
+              <p class="slide-lede">The Tricycle Live Fare System puts a single, current fare reference in the hands of both drivers and passengers. Instead of relying on printed matrices that go stale, riders and operators can check the same up-to-date figures, closing the gap that fare disputes come from.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 7: Solution -->
+      <article class="slide theme-corporate" data-index="7">
+        <div class="slide-inner">
+          <span class="eyebrow">The Proposal</span>
+          <h2 class="slide-heading">Solution</h2>
+          <div class="solution-box">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <span class="sol-label">How it helps</span>
+              <p>The system provides an updated and official digital fare reference for both passengers and drivers. It promotes transparency, reduces fare disputes, and ensures fair and consistent fare computation.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ TOPIC 3 : TECH BLUE THEME ============ -->
+      <!-- Slide 8: Problem Statement -->
+      <article class="slide theme-tech" data-index="8">
+        <div class="slide-inner">
+          <span class="eyebrow">Topic 03 · Problem Statement</span>
+          <div class="hero-layout">
+            <div class="hero-icon-wrap panel"><i class="fa-solid fa-ear-deaf"></i></div>
+            <div class="hero-text">
+              <h1 class="slide-title">Communication Barriers for Individuals with Hearing Disabilities</h1>
+              <p class="slide-lede">For individuals with hearing disabilities, spoken conversations move faster than they can be followed, and identifying who is speaking in a group setting adds another layer of difficulty. Important details are easily missed in classes, meetings, and daily interactions, and there is usually no way to go back and review what was said. These barriers limit full participation in everyday communication.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 9: Problems -->
+      <article class="slide theme-tech" data-index="9">
+        <div class="slide-inner">
+          <span class="eyebrow">The Challenge</span>
+          <h2 class="slide-heading">Problems</h2>
+          <div class="problems-grid">
+            <div class="problem-card panel" style="animation-delay:.03s">
+              <i class="fa-solid fa-comment-slash"></i>
+              <p>Difficulty understanding spoken conversations.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.10s">
+              <i class="fa-solid fa-user-group"></i>
+              <p>Speakers are difficult to identify.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.17s">
+              <i class="fa-solid fa-gauge-high"></i>
+              <p>Fast discussions are hard to follow.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.24s">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <p>Important information may be missed.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.31s">
+              <i class="fa-solid fa-ear-listen"></i>
+              <p>Communication barriers still exist.</p>
+            </div>
+            <div class="problem-card panel" style="animation-delay:.38s">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              <p>Conversations cannot be reviewed easily.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 10: Proposed System -->
+      <article class="slide theme-tech" data-index="10">
+        <div class="slide-inner">
+          <span class="eyebrow">Topic 03 · Proposed System</span>
+          <div class="hero-layout">
+            <div class="hero-icon-wrap panel"><i class="fa-solid fa-robot"></i></div>
+            <div class="hero-text">
+              <h1 class="slide-title">Disability Aid AI System</h1>
+              <p class="slide-lede">The Disability Aid AI System listens to spoken conversation and turns it into live, speaker-identified captions as it happens. By keeping a record that can be reviewed afterward, it gives users a reliable way to follow along in real time and catch anything they may have missed.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 11: Solution -->
+      <article class="slide theme-tech" data-index="11">
+        <div class="slide-inner">
+          <span class="eyebrow">The Proposal</span>
+          <h2 class="slide-heading">Solution</h2>
+          <div class="solution-box">
+            <i class="fa-solid fa-circle-check"></i>
+            <div>
+              <span class="sol-label">How it helps</span>
+              <p>The system converts speech into live captions, identifies speakers, and saves conversations for later review. It improves accessibility, enhances communication, and helps users participate confidently in classes, meetings, and daily interactions.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ============ ENDING SLIDE ============ -->
+      <article class="slide theme-closing" data-index="12">
+        <div class="slide-inner">
+          <span class="eyebrow">End of Presentation</span>
+          <i class="fa-solid fa-graduation-cap closing-icon"></i>
+          <h1 class="closing-title">Thank You!</h1>
+          <p class="closing-sub">Thank you for your time and attention.</p>
+          <div class="rule"></div>
+          <p class="closing-line">Questions and Discussion</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ============ CHROME: TOPBAR / ARROWS / DOTS ============ -->
+  <div class="deck-chrome">
+    <div class="deck-topbar">
+      <span class="deck-brand">Research Proposal</span>
+      <div class="topbar-right">
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <span class="slide-counter" id="slideCounter">01 / 13</span>
+        <button class="home-link-btn" id="homeBtn" aria-label="Return to welcome screen">
+          <i class="fa-solid fa-house"></i>
+        </button>
+      </div>
+    </div>
+
+    <button class="nav-arrow nav-prev" id="prevBtn" aria-label="Previous slide">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="nav-arrow nav-next" id="nextBtn" aria-label="Next slide">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="deck-dots" id="dots"></div>
+  </div>
+</section>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------------------------------------------------
+     Home screen: floating particles
+  --------------------------------------------------------- */
+  const particleField = document.getElementById('particles');
+  const PARTICLE_COUNT = 22;
+  for(let i=0;i<PARTICLE_COUNT;i++){
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = 3 + Math.random()*6;
+    p.style.width = size+'px';
+    p.style.height = size+'px';
+    p.style.left = Math.random()*100+'%';
+    p.style.bottom = (-10 - Math.random()*20)+'px';
+    p.style.animationDuration = (9 + Math.random()*10)+'s';
+    p.style.animationDelay = (Math.random()*10)+'s';
+    particleField.appendChild(p);
+  }
+
+  /* ---------------------------------------------------------
+     Deck state
+  --------------------------------------------------------- */
+  const TOTAL_SLIDES = 13;
+  let current = 0;
+
+  const homeEl = document.getElementById('home');
+  const presEl = document.getElementById('presentation');
+  const trackEl = document.getElementById('track');
+  const viewportEl = document.getElementById('viewport');
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsWrap = document.getElementById('dots');
+  const progressFill = document.getElementById('progressFill');
+  const slideCounter = document.getElementById('slideCounter');
+  const homeBtn = document.getElementById('homeBtn');
+  const playBtn = document.getElementById('playBtn');
+
+  /* Per-theme chrome tokens (ink + accent color for arrows/dots/progress) */
+  const THEME_CHROME = {
+    library:    { bg:'#f4ecd8', ink:'#3f2a18', accent:'#6b4226' },
+    corporate:  { bg:'#e9ebee', ink:'#20242b', accent:'#3f5972' },
+    tech:       { bg:'#050c1a', ink:'#eaf3ff', accent:'#4be3ff' },
+    closing:    { bg:'#0f1210', ink:'#f4efe4', accent:'#c9a15a' }
+  };
+  function themeOf(index){
+    if(index <= 3) return 'library';
+    if(index <= 7) return 'corporate';
+    if(index <= 11) return 'tech';
+    return 'closing';
+  }
+
+  /* Build nav dots */
+  for(let i=0;i<TOTAL_SLIDES;i++){
+    const d = document.createElement('button');
+    d.className = 'dot';
+    d.setAttribute('aria-label', 'Go to slide '+(i+1));
+    d.addEventListener('click', ()=>goTo(i));
+    dotsWrap.appendChild(d);
+  }
+  const dotEls = Array.from(dotsWrap.children);
+
+  function updateChrome(){
+    const theme = THEME_CHROME[themeOf(current)];
+    viewportEl.style.setProperty('--stage-bg', theme.bg);
+    document.documentElement.style.setProperty('--chrome-ink', theme.ink);
+    document.documentElement.style.setProperty('--chrome-accent', theme.accent);
+
+    dotEls.forEach((d,i)=> d.classList.toggle('active', i===current));
+    progressFill.style.width = ((current+1)/TOTAL_SLIDES*100)+'%';
+    slideCounter.textContent = String(current+1).padStart(2,'0')+' / '+TOTAL_SLIDES;
+
+    prevBtn.classList.toggle('hidden-arrow', current===0);
+    nextBtn.classList.toggle('hidden-arrow', current===TOTAL_SLIDES-1);
+  }
+
+  function replayCardAnimations(index){
+    const slide = slides[index];
+    const animated = slide.querySelectorAll('.problem-card, .solution-box, .hero-icon-wrap, .hero-text, .closing-title, .closing-sub, .closing-line, .closing-icon');
+    animated.forEach(el=>{
+      el.style.animation = 'none';
+      // force reflow
+      void el.offsetWidth;
+      el.style.animation = '';
+    });
+  }
+
+  function goTo(index){
+    index = Math.max(0, Math.min(TOTAL_SLIDES-1, index));
+    current = index;
+    trackEl.style.transform = 'translateX(-'+(current * (100/TOTAL_SLIDES))+'%)';
+    updateChrome();
+    replayCardAnimations(current);
+  }
+
+  prevBtn.addEventListener('click', ()=> goTo(current-1));
+  nextBtn.addEventListener('click', ()=> goTo(current+1));
+
+  document.addEventListener('keydown', (e)=>{
+    if(!presEl.classList.contains('active')) return;
+    if(e.key === 'ArrowRight'){ goTo(current+1); }
+    else if(e.key === 'ArrowLeft'){ goTo(current-1); }
+  });
+
+  /* ---------------------------------------------------------
+     Transition: home -> presentation
+  --------------------------------------------------------- */
+  playBtn.addEventListener('click', ()=>{
+    homeEl.classList.add('leaving');
+    setTimeout(()=>{
+      presEl.classList.add('active');
+      goTo(0);
+    }, 350);
+  });
+
+  homeBtn.addEventListener('click', ()=>{
+    presEl.classList.remove('active');
+    homeEl.classList.remove('leaving');
+  });
+
+  /* Basic touch swipe support */
+  let touchStartX = null;
+  viewportEl.addEventListener('touchstart', (e)=>{ touchStartX = e.touches[0].clientX; }, {passive:true});
+  viewportEl.addEventListener('touchend', (e)=>{
+    if(touchStartX===null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(dx) > 50){ dx < 0 ? goTo(current+1) : goTo(current-1); }
+    touchStartX = null;
+  }, {passive:true});
+
+  /* Recompute translate on resize (percentages already handle most of it,
+     this simply avoids any rounding drift on orientation change) */
+  window.addEventListener('resize', ()=>{
+    trackEl.style.transition = 'none';
+    goTo(current);
+    requestAnimationFrame(()=>{ trackEl.style.transition = ''; });
+  });
+
+  updateChrome();
+})();
+</script>
+</body>
+</html>
